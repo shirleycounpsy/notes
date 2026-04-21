@@ -65,22 +65,31 @@ a:hover {
 }
 
 :root[saved-theme="dark"] {
-  --light: #1E1614;
-  --lightgray: #2E2420;
-  --gray: #5A4A42;
-  --darkgray: #E8DDD8;
-  --dark: #F5F0EC;
-  --secondary: #C49898;
-  --tertiary: #D4A8A8;
-  --highlight: rgba(196, 152, 152, 0.15);
-  --textHighlight: rgba(196, 152, 152, 0.2);
+  --light: #1C1210;
+  --lightgray: #2A1E1A;
+  --gray: #3E2E28;
+  --darkgray: #C8BEB8;
+  --dark: #EDE8E4;
+  --secondary: #B88A8A;
+  --tertiary: #C89A9A;
+  --highlight: rgba(184, 138, 138, 0.14);
+  --textHighlight: rgba(184, 138, 138, 0.2);
 }
 
 /* ============================================
-   背景點點紋理
+   內文字體大小
+   ============================================ */
+article p,
+article li {
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+/* ============================================
+   背景點點紋理（用 CSS 變數，深淺模式自動適配）
    ============================================ */
 body {
-  background-image: radial-gradient(circle at 1px 1px, #E4D4C8 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, var(--gray) 1px, transparent 0);
   background-size: 20px 20px;
 }
 

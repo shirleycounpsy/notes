@@ -72,7 +72,7 @@ export default {
     },
     folderContent: {
       folder: "資料夾",
-      itemsUnderFolder: ({ count }) => `此資料夾下有 ${count} 條筆記。`,
+      itemsUnderFolder: ({ count }) => `共 ${count} 篇文章`,
     },
     tagContent: {
       tag: "標籤",

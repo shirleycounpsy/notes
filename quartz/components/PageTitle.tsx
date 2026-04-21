@@ -5,7 +5,9 @@ const PageTitle: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
     <div class={classNames(displayClass, "page-title")}>
       <a href="https://shirleycounpsy.github.io">
-        <span class="page-title-main">明心橡</span>
+        <span class="page-title-main">
+          <span class="title-base">明心</span><span class="title-accent">櫞</span>
+        </span>
         <span class="page-title-sub">輔導心理 by Shirley</span>
       </a>
     </div>
@@ -27,16 +29,23 @@ PageTitle.css = `
 .page-title-main {
   font-family: var(--titleFont);
   font-size: 1.75rem;
+}
+
+.title-base {
+  color: var(--dark);
+}
+
+.title-accent {
   color: var(--secondary);
 }
 
 .page-title-sub {
-  font-family: var(--bodyFont);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-family: var(--headerFont);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--darkgray);
-  opacity: 0.85;
 }
 `
 

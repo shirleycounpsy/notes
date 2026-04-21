@@ -1,3 +1,291 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&display=swap");
+
+/* 品牌標題用明朝字款 */
+.page-title {
+  font-family: 'Kaisei Decol', 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif !important;
+  letter-spacing: 0.08em;
+}
+
+/* 文章標題輕量化 */
+h1, h2, h3 {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* 連結顏色 */
+a {
+  color: var(--secondary);
+}
+
+a:hover {
+  color: var(--tertiary);
+}
+/* ============================================
+   Hero 圖片
+   ============================================ */
+.page img[src*="hero"] {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 70%;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+/* ============================================
+   頭像 圖片
+   ============================================ */
+.profile-img {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 auto 1.5rem auto !important;
+}
+/* ============================================
+   顏色主題
+   ============================================ */
+:root[saved-theme="light"] {
+  --light: #FDFAF8;
+  --lightgray: #F2E5E0;
+  --gray: #E4D4C8;
+  --darkgray: #7A6858;
+  --dark: #2D2220;
+  --secondary: #C49898;
+  --tertiary: #B48888;
+  --highlight: rgba(252, 225, 222, 0.28);
+  --textHighlight: rgba(196, 152, 152, 0.25);
+}
+
+:root[saved-theme="dark"] {
+  --light: #1E1614;
+  --lightgray: #2E2420;
+  --gray: #5A4A42;
+  --darkgray: #E8DDD8;
+  --dark: #F5F0EC;
+  --secondary: #C49898;
+  --tertiary: #D4A8A8;
+  --highlight: rgba(196, 152, 152, 0.15);
+  --textHighlight: rgba(196, 152, 152, 0.2);
+}
+
+/* ============================================
+   背景點點紋理
+   ============================================ */
+body {
+  background-image: radial-gradient(circle at 1px 1px, #E4D4C8 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* ============================================
+   漸變分隔線
+   ============================================ */
+hr,
+.page hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #E4D4C8 25%,
+    #C49898 50%,
+    #E4D4C8 75%,
+    transparent
+  );
+  margin: 2rem 0;
+  opacity: 0.75;
+}
+/* ============================================
+   彩色 Bubble 專業範疇
+   ============================================ */
+.specialty-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.8rem 0 1.5rem 0;
+}
+
+.bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: default;
+  white-space: nowrap;
+}
+
+/* Bubble - 奇數位 (1, 3, 5)：sage oat */
+.bubble-orange,
+.bubble-yellow,
+.bubble-purple {
+  background: #DDD4C8;
+  color: #5A4838;
+  border: 1.5px solid #C4B4A4;
+}
+
+/* Bubble - 偶數位 (2, 4)：warm rose */
+.bubble-green,
+.bubble-blue {
+  background: #E8D0CC;
+  color: #6A3C38;
+  border: 1.5px solid #C8A8A4;
+}
+
+/* Dark mode */
+:root[saved-theme="dark"] .bubble-orange,
+:root[saved-theme="dark"] .bubble-yellow,
+:root[saved-theme="dark"] .bubble-purple {
+  background: #2A1E18;
+  color: #C4B4A4;
+  border-color: #5A4838;
+}
+
+:root[saved-theme="dark"] .bubble-green,
+:root[saved-theme="dark"] .bubble-blue {
+  background: #2E1E1C;
+  color: #C49898;
+  border-color: #6A3C38;
+}
+/* ============================================
+   著作框框 (Book Cards)
+   ============================================ */
+.book-card-grid {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.book-card {
+  flex: 1;
+  min-width: 160px;
+  max-width: 220px;
+  background: var(--light);
+  border: 1.5px solid #D8CCC5;
+  border-left: 4px solid #C49898;
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  /* 移除transition同hover效果 */
+}
+
+.book-card:hover {
+  /* 清空，唔要hover效果 */
+  transform: none;
+  box-shadow: none;
+  border-color: #D8CCC5;
+  border-left-color: #C49898
+}
+.book-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-card .book-title {
+  font-weight: 600;
+  color: var(--dark);
+  font-size: 0.92rem;
+  margin-top: 0.3rem;
+}
+
+.book-card .book-meta {
+  color: var(--gray);
+  font-size: 0.78rem;
+}
+.intro-box {
+  background: rgba(242, 232, 224, 0.6);
+  border: 1.5px solid #D8CCC5;
+  border-left: 4px solid #C49898;
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.2rem 0;
+  line-height: 1.8;
+}
+.book-item img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.book-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.book-item {
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.book-item a {
+  position: relative;
+  display: block;
+}
+.book-item a::after {
+  content: "點擊了解更多 →";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(143, 175, 138, 0.85);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.book-item a:hover::after {
+  opacity: 1;
+}
+/* ============================================
+   手機版響應式
+   ============================================ */
+.popover-hint {
+  max-width: 650px !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 768px) {
+  .specialty-bubbles {
+    gap: 0.5rem;
+  }
+
+  .bubble {
+    font-size: 0.82rem;
+    padding: 0.38rem 0.85rem;
+  }
+
+  .book-card-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-card {
+    max-width: 85%;
+    width: 85%;
+  }
+}

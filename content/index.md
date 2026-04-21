@@ -2,6 +2,4 @@
 title: 文章分享
 ---
 
-歡迎來到明心櫞的文章空間。
-
-👉 [瀏覽所有文章](文章)
+<script>window.location.replace('文章/');</script>

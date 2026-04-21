@@ -1,21 +1,42 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { classNames } from "../util/lang"
-import { i18n } from "../i18n"
 
-const PageTitle: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps) => {
-  const title = cfg?.pageTitle ?? i18n(cfg.locale).propertyDefaults.title
+const PageTitle: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
   return (
-    <h2 class={classNames(displayClass, "page-title")}>
-      <a href="https://shirleycounpsy.github.io">{title}</a>
-    </h2>
+    <div class={classNames(displayClass, "page-title")}>
+      <a href="https://shirleycounpsy.github.io">
+        <span class="page-title-main">明心橡</span>
+        <span class="page-title-sub">輔導心理 by Shirley</span>
+      </a>
+    </div>
   )
 }
 
 PageTitle.css = `
 .page-title {
-  font-size: 1.75rem;
   margin: 0;
+}
+
+.page-title a {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.page-title-main {
   font-family: var(--titleFont);
+  font-size: 1.75rem;
+  color: var(--secondary);
+}
+
+.page-title-sub {
+  font-family: var(--bodyFont);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--darkgray);
+  opacity: 0.85;
 }
 `
 

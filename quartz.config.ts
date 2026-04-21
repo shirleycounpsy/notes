@@ -23,6 +23,7 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
+        title: "Kaisei Decol",
         header: "Noto Serif TC",
         body: "Klee One",
         code: "IBM Plex Mono",

@@ -19,6 +19,10 @@ interface BreadcrumbOptions {
    */
   rootName: string
   /**
+   * Optional external URL to override the root crumb link
+   */
+  rootPath?: string
+  /**
    * Whether to look up frontmatter title for folders (could cause performance problems with big vaults)
    */
   resolveFrontmatterTitle: boolean
@@ -62,6 +66,9 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       const crumb = formatCrumb(node.displayName, fileData.slug!, simplifySlug(node.slug))
       if (idx === 0) {
         crumb.displayName = options.rootName
+        if (options.rootPath) {
+          crumb.path = options.rootPath
+        }
       }
 
       // For last node (current page), set empty path

@@ -39,6 +39,16 @@ export const defaultContentPageLayout: PageLayout = {
     }),
     Component.Explorer({
   title: "目錄",
+  sortFn: (a, b) => {
+    const dateA = (a.data as any)?.dates?.modified ?? (a.data as any)?.dates?.created ?? new Date(0);
+    const dateB = (b.data as any)?.dates?.modified ?? (b.data as any)?.dates?.created ?? new Date(0);
+
+    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+      return new Date(dateB).getTime() - new Date(dateA).getTime();
+    }
+
+    return a.isFolder ? -1 : 1;
+  },
 }),
   ],
   right: [
@@ -65,6 +75,16 @@ export const defaultListPageLayout: PageLayout = {
     }),
     Component.Explorer({
   title: "目錄",
+  sortFn: (a, b) => {
+    const dateA = (a.data as any)?.dates?.modified ?? (a.data as any)?.dates?.created ?? new Date(0);
+    const dateB = (b.data as any)?.dates?.modified ?? (b.data as any)?.dates?.created ?? new Date(0);
+
+    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
+      return new Date(dateB).getTime() - new Date(dateA).getTime();
+    }
+
+    return a.isFolder ? -1 : 1;
+  },
 }),
   ],
   right: [],

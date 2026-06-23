@@ -71,7 +71,7 @@ export default {
       home: "返回首頁",
     },
     folderContent: {
-      folder: "資料夾",
+      folder: "",
       itemsUnderFolder: ({ count }) => `共 ${count} 篇文章`,
     },
     tagContent: {
